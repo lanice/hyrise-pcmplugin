@@ -6,9 +6,9 @@
 
 namespace opossum {
 
-class ExamplePlugin : public AbstractPlugin, public Singleton<ExamplePlugin> {
+class PcmPlugin : public AbstractPlugin, public Singleton<PcmPlugin> {
  public:
-  ExamplePlugin() : sm(StorageManager::get()) {}
+  PcmPlugin() : sm(StorageManager::get()) {}
 
   const std::string description() const final;
 

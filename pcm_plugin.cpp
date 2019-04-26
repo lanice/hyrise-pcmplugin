@@ -1,12 +1,12 @@
-#include "example_plugin.hpp"
+#include "pcm_plugin.hpp"
 
 #include "storage/table.hpp"
 
 namespace opossum {
 
-const std::string ExamplePlugin::description() const { return "This is the Hyrise ExamplePlugin"; }
+const std::string PcmPlugin::description() const { return "This is the Hyrise PcmPlugin"; }
 
-void ExamplePlugin::start() {
+void PcmPlugin::start() {
   TableColumnDefinitions column_definitions;
   column_definitions.emplace_back("col_1", DataType::Int);
   auto table = std::make_shared<Table>(column_definitions, TableType::Data);
@@ -14,8 +14,8 @@ void ExamplePlugin::start() {
   sm.add_table("DummyTable", table);
 }
 
-void ExamplePlugin::stop() { StorageManager::get().drop_table("DummyTable"); }
+void PcmPlugin::stop() { StorageManager::get().drop_table("DummyTable"); }
 
-EXPORT_PLUGIN(ExamplePlugin)
+EXPORT_PLUGIN(PcmPlugin)
 
 }  // namespace opossum
