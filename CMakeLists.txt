@@ -42,6 +42,8 @@ target_include_directories(
     pcm
     PUBLIC
     pcm
+    hyrise/third_party/json
+    hyrise/third_party/cxxopts/include
 )
 
 ### Modify this line to add your own plugin
