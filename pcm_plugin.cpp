@@ -36,10 +36,10 @@ void PcmPlugin::stop() {
 void PcmPlugin::register_listenable(std::shared_ptr<Listenable> listenable) {
   listenable->add_listener(Event::ItemRunStarted, [&](const nlohmann::json &payload){this->_start_counting(payload);});
   listenable->add_listener(Event::ItemRunFinished, [&](const nlohmann::json &payload){this->_stop_counting(payload);});
+
+  Assert(std::dynamic_pointer_cast<BenchmarkRunner>(listenable), "Can register PcmPlugin only with BenchmarkRunner as Listenable.");
   listenable->add_listener(Event::CreateReport, [&](const nlohmann::json &payload){
-    auto benchmark_runner = std::dynamic_pointer_cast<BenchmarkRunner>(listenable);
-    Assert(benchmark_runner, "Can register PcmPlugin only with BenchmarkRunner as Listenable.");
-    benchmark_runner->add_to_json_report("PcmPlugin", _results);
+    std::dynamic_pointer_cast<BenchmarkRunner>(listenable)->add_to_json_report("PcmPlugin", _results);
   });
 }
 
