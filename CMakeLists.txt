@@ -44,7 +44,8 @@ target_include_directories(
     pcm
     hyrise/third_party/json
     hyrise/third_party/cxxopts/include
+    hyrise/src/benchmarklib
 )
 
 ### Modify this line to add your own plugin
-add_plugin(NAME PcmPlugin SRCS pcm_plugin.cpp pcm_plugin.hpp LIBS pcm)
+add_plugin(NAME PcmPlugin SRCS pcm_plugin.cpp pcm_plugin.hpp DEPS hyriseBenchmarkLib LIBS pcm)
