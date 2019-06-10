@@ -48,4 +48,4 @@ target_include_directories(
 )
 
 ### Modify this line to add your own plugin
-add_plugin(NAME PcmPlugin SRCS pcm_plugin.cpp pcm_plugin.hpp DEPS hyriseBenchmarkLib LIBS pcm)
+add_plugin(NAME PcmPlugin SRCS pcm_plugin.cpp pcm_plugin.hpp LIBS pcm)
